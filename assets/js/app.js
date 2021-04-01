@@ -12,7 +12,7 @@
       this.button = document.querySelector('button');
       this.options = document.querySelector('#gameboard-section');
       this.option = function (value) {
-        return document.getElementById(value);
+        return document.querySelector(`[data-index="${value}"]`);
       };
     },
     render: function () {
@@ -20,7 +20,7 @@
         this.button.innerText = 'Reset';
         this.buttonValue = 'Reset';
       } else if (this.buttonValue === 'Reset') {
-        this.option(this.optionID).innerText = this.gameboardArr[
+        this.option(this.optionIndex).innerText = this.gameboardArr[
           this.gameboardArr.length - 1
         ];
       }
@@ -38,7 +38,7 @@
         !event.target.innerText
       ) {
         this.choice();
-        this.optionID = event.target.id;
+        this.optionIndex = event.target.dataset.index;
         this.render();
       }
     },
