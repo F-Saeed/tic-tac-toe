@@ -24,6 +24,7 @@ main #headings-section p {
   color: #14213d;
   font-family: newTegomin;
   font-size: 1.5rem;
+  height: 28px;
 }
 
 main #gameboard-section {
