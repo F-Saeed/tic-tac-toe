@@ -74,8 +74,9 @@
   const player = (number) => {
     const name = prompt(
       `Please enter player ${number}'s name`,
-      `Player${number}`
+      `Player ${number}`
     );
+
     let Array = [];
 
     const check = function (target, combinations) {
