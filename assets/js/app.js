@@ -2,11 +2,11 @@
   const gameboard = {
     gameboardArr: [],
     turnCount: 0,
-    init: function () {
+    init() {
       this.cacheDOM();
       this.bind();
     },
-    cacheDOM: function () {
+    cacheDOM() {
       this.para = document.querySelector('p');
       this.button = document.querySelector('button');
       this.gameboard = document.querySelector('#gameboard-section');
@@ -14,7 +14,7 @@
         return document.querySelector(`[data-index="${value}"]`);
       };
     },
-    render: function () {
+    render() {
       this.option(this.optionIndex).innerText = this.gameboardArr[
         this.gameboardArr.length - 1
       ];
@@ -26,14 +26,14 @@
         this.para.innerText = 'Its a Tie!';
       }
     },
-    gameController: function (event) {
+    gameController(event) {
       if (!event.target.innerText && !this.para.innerText.includes('wins')) {
         this.playerMove(event);
         this.optionIndex = event.target.dataset.index;
         this.render();
       }
     },
-    reset: function () {
+    reset() {
       document.querySelectorAll('.option').forEach((item) => {
         item.innerText = '';
       });
@@ -44,11 +44,11 @@
       Player1.Array = [];
       Player2.Array = [];
     },
-    bind: function () {
+    bind() {
       this.gameboard.addEventListener('click', this.gameController.bind(this));
       this.button.addEventListener('click', this.reset.bind(this));
     },
-    playerMove: function (event) {
+    playerMove(event) {
       if (this.turnCount % 2 === 0) {
         this.gameboardArr.push('X');
         Player1.Array.push(parseInt(event.target.dataset.index));
