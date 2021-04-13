@@ -18,9 +18,9 @@
       this.option(this.optionIndex).innerText = this.gameboardArr[
         this.gameboardArr.length - 1
       ];
-      if (Player1.check(Player1.Array, combinations)) {
+      if (check(Player1.Array, combinations)) {
         this.para.innerText = `${Player1.name} wins!`;
-      } else if (Player2.check(Player2.Array, combinations)) {
+      } else if (check(Player2.Array, combinations)) {
         this.para.innerText = `${Player2.name} wins!`;
       } else if (this.turnCount > 8 && !this.para.innerText.includes('wins')) {
         this.para.innerText = 'Its a Tie!';
@@ -60,6 +60,17 @@
     },
   };
 
+  const player = (number) => {
+    const name = prompt(
+      `Please enter player ${number}'s name`,
+      `Player ${number}`
+    );
+
+    let Array = [];
+
+    return { name, Array, check };
+  };
+
   const combinations = [
     [0, 1, 2],
     [0, 3, 6],
@@ -71,22 +82,12 @@
     [6, 7, 8],
   ];
 
-  const player = (number) => {
-    const name = prompt(
-      `Please enter player ${number}'s name`,
-      `Player ${number}`
-    );
+  const check = function (target, combinations) {
+    return combinations.some((element) => compare(target, element));
+  };
 
-    let Array = [];
-
-    const check = function (target, combinations) {
-      return combinations.some((element) => compare(target, element));
-    };
-    const compare = function (target, element) {
-      return element.every((value) => target.includes(value));
-    };
-
-    return { name, Array, check };
+  const compare = function (target, element) {
+    return element.every((value) => target.includes(value));
   };
 
   const Player1 = player(1);
