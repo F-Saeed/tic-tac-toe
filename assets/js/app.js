@@ -68,7 +68,7 @@
 
     let Array = [];
 
-    return { name, Array, check };
+    return { name, Array };
   };
 
   const combinations = [
