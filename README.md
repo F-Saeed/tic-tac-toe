@@ -11,7 +11,7 @@ A Tic Tac Toe game webapp.
 
 ## General Information
 
-This is a game webapp based on the famous Tic Tac Toe game [Wiki](https://www.wikiwand.com/en/Tic-tac-toe).
+This is a game webapp based on the famous Tic Tac Toe game ([Wiki](https://www.wikiwand.com/en/Tic-tac-toe)).
 
 ## Technologies used
 
